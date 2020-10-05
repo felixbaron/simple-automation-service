@@ -1,0 +1,3 @@
+robot-service/node_modules/*
+logs.log
+debug.log
