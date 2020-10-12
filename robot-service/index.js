@@ -8,10 +8,15 @@ const {
 const logStream = fs.createWriteStream('./logs.log', {
   flags: 'a'
 });
+// app.use(express.json())
+// app.use(express.urlencoded({
+  // extended: true
+// }))
 
 
-app.get('/robots/:robotName', (req, res) => {
-  const ls = spawn('cmd.exe', ['/c', `${req.params.robotName}`]);
+app.get('/robots/:robot', (req, res) => {
+  console.log(req.params.robot)
+  const ls = spawn('cmd.exe', ['/c', `${req.params.robot}`]);
   ls.stdout.pipe(logStream, {
     end: false
   });
